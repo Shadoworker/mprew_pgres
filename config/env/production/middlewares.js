@@ -15,7 +15,15 @@ module.exports = [
             },
         },
     },
-    'strapi::cors',
+    // 'strapi::cors',
+    {
+        name: 'strapi::cors',
+        config: {
+          enabled: true,
+          headers: '*',
+          origin: ['http://localhost:8100', 'http://example2']
+        }
+    },
     'strapi::poweredBy',
     'strapi::logger',
     'strapi::query',
