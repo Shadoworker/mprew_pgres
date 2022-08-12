@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ordered_products",
+  "info": {
+    "singularName": "ordered-product",
+    "pluralName": "ordered-products",
+    "displayName": "orderedProduct",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "ordered_products"
+    }
+  }
+}
