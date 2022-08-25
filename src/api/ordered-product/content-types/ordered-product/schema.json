@@ -21,20 +21,16 @@
     "quantity": {
       "type": "integer"
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "order": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::order.order",
       "inversedBy": "ordered_products"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
     }
   }
 }
