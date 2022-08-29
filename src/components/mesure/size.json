@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_mesure_sizes",
+  "info": {
+    "displayName": "mesure",
+    "icon": "cut",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stature": {
+      "type": "decimal"
+    },
+    "tourDepaules": {
+      "type": "decimal"
+    },
+    "tourDePoitrine": {
+      "type": "decimal"
+    },
+    "tourDeTaille": {
+      "type": "decimal"
+    },
+    "tourDeHanches": {
+      "type": "decimal"
+    },
+    "manches": {
+      "type": "decimal"
+    }
+  }
+}

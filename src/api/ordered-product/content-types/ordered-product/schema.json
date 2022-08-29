@@ -31,6 +31,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "mesures": {
+      "type": "component",
+      "repeatable": false,
+      "component": "mesure.size"
+    },
+    "estimatedMeters": {
+      "type": "decimal"
     }
   }
 }
