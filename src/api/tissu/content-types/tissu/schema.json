@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tissu",
     "pluralName": "tissus",
-    "displayName": "tissu"
+    "displayName": "tissu",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +16,21 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "quantity": {
       "type": "decimal"
+    },
+    "status": {
+      "type": "colorpicker"
     }
   }
 }

@@ -39,6 +39,9 @@
     },
     "estimatedMeters": {
       "type": "decimal"
+    },
+    "size": {
+      "type": "string"
     }
   }
 }
