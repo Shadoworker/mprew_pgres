@@ -62,12 +62,6 @@
       "default": false,
       "configurable": false
     },
-    "order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order.order",
-      "inversedBy": "users_permissions_user"
-    },
     "creations": {
       "type": "relation",
       "relation": "oneToMany",
