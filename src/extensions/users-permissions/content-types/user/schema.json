@@ -72,16 +72,16 @@
       "type": "boolean",
       "default": false
     },
-    "cart": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cart.cart",
-      "inversedBy": "users_permissions_user"
-    },
     "order": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::order.order",
+      "inversedBy": "user"
+    },
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart",
       "inversedBy": "user"
     }
   }
