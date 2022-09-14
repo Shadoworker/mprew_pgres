@@ -78,11 +78,11 @@
       "target": "api::cart.cart",
       "inversedBy": "users_permissions_user"
     },
-    "orders": {
+    "order": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::order.order",
-      "mappedBy": "users_permissions_user"
+      "inversedBy": "user"
     }
   }
 }
