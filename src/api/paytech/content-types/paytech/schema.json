@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payteches",
+  "info": {
+    "singularName": "paytech",
+    "pluralName": "payteches",
+    "displayName": "paytech"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
