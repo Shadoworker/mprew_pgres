@@ -14,6 +14,11 @@ module.exports = {
         method: 'POST',
         path: '/paytech/generate',
         handler: 'paytech.generate',
-      } 
+      },      
+      {
+        method: 'GET',
+        path: '/paytech/complete',
+        handler: 'paytech.complete',
+      }
     ]
-  }
+}

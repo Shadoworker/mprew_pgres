@@ -6,6 +6,7 @@
 
 //  import { factories } from '@strapi/strapi'
 const axios  = require("axios");
+const viewModule = require('../content-types/view');
  
   
 module.exports = createCoreController('api::paytech.paytech', ({ strapi }) =>  ({
@@ -28,14 +29,16 @@ module.exports = createCoreController('api::paytech.paytech', ({ strapi }) =>  (
           command_name:"Paiement "+params.name+" via PayTech",
           env:"test",
           ipn_url:"https://domaine.com/ipn",
-          // success_url:"https://domaine.com/success",
-          // cancel_url:"https://domaine.com/cancel",
+          success_url: params.success_url,
+          cancel_url: params.cancel_url,
           custom_field:JSON.stringify({
             custom_fiel1:"value_1",
             custom_fiel2:"value_2",
           })
         };
     
+        console.log(body);
+
 
         let config = {
             headers:{
@@ -50,9 +53,9 @@ module.exports = createCoreController('api::paytech.paytech', ({ strapi }) =>  (
  
            const { data } = await axios.post(paymentRequestUrl, body, config)
 
-           console.log("DATA")
+          //  console.log("DATA")
 
-           console.log(data)
+          //  console.log(data)
 
            ctx.body = data;
             
@@ -66,6 +69,43 @@ module.exports = createCoreController('api::paytech.paytech', ({ strapi }) =>  (
  
  
        },
+
+
+       async complete(ctx) { // paytech MAIN complete : called by GET /complete
+  
+        var url_string = 'http://51.38.165.24/'+ ctx.originalUrl;
+ 
+        var paramsEncoded = url_string.split('?')[1];
+        var paramsDecoded = Buffer.from(paramsEncoded, 'base64').toString('ascii');
+        var sections = paramsDecoded.split('&');
+
+        var isPayed = (sections[0].split('=')[1] === 'true');
+        var orderId =  sections[1].split('=')[1];
+
+        const entry = await strapi.entityService.update('api::order.order', orderId , {
+          data: {
+            payed: isPayed,
+          },
+        });
+
+        if(entry || isPayed)
+        {
+          var mess = " a été bien effectué."
+          ctx.body = viewModule.view(mess, orderId);
+        }
+        else
+        {
+          var mess = " n'a pas été complété."
+          ctx.body = viewModule.view(mess, orderId);
+        }
+
+
+       },
+
+
+
+
+
   
    }));
     
